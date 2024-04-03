@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup --config rollup.config.js",
-    "build2": "rollup --config rollupes.config.js"
+    "build:default": " rollup  --config rollup.config.js",
+    "build:uni": "cross-env UNIVERSAL_ENV=uni rollup  --config rollup.config.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,10 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@rollup/plugin-babel": "^6.0.4"
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-replace": "^5.0.7",
+    "@types/uni-app": "^1.4.8",
+    "cross-env": "^7.0.3",
+    "tslib": "^2.6.2"
   }
 }

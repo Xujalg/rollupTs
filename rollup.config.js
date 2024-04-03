@@ -1,4 +1,6 @@
+import babel from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
+import replace from '@rollup/plugin-replace';
 
 const config = {
     input: './src/index.ts',//入口文件
@@ -9,6 +11,13 @@ const config = {
     },
     plugins: [
         typescript(), // 使用 TypeScript 插件
+        babel({
+            babelHelpers: 'bundled',
+            exclude: 'node_modules/**'
+        }),
+        replace({
+            'process.env.UNIVERSAL_ENV': JSON.stringify(process.env.UNIVERSAL_ENV || 'default')
+        })
         // 其他插件和配置...
     ],
 }
